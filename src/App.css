@@ -1,38 +1,42 @@
 .App {
-  text-align: center;
+  width: 270px;
+  height: 390px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "display display display display"
+    "c c percent divide"
+    "seven eight nine multi"
+    "four five six subtract"
+    "one two three plus"
+    "zero zero point equals";
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.display {
+  background-color: #ffffff;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.c,
+.point,
+.one,
+.two,
+.three,
+.four,
+.five,
+.six,
+.seven,
+.eight,
+.nine,
+.zero {
+  background-color: #a6a6a6;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.percent {
+  background-color: #4e4e4e;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.divide,
+.multi,
+.subtract,
+.equals,
+.plus {
+  background-color: #ef811b;
 }
