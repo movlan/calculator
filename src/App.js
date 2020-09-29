@@ -12,6 +12,11 @@ class App extends React.Component {
   };
 
   onDigitPress = (key) => {
+    if (this.state.first === "") {
+      this.setState({
+        result: "",
+      });
+    }
     if (this.state.operand === "") {
       this.setState({
         first: this.state.first + key,
@@ -46,17 +51,37 @@ class App extends React.Component {
     }
   };
 
-  onClearPress(key) {
-    this.setState({ currentDisplay: this.state.currentDisplay + key });
-  }
+  onClearPress = (key) => {
+    this.setState({
+      first: "",
+      second: "",
+      operand: "",
+      result: "",
+    });
+  };
+
+  onEqualsPress = () => {
+    if (this.state.second !== "") {
+      this.setState({
+        result: this.calculate(
+          this.state.first,
+          this.state.second,
+          this.state.operand
+        ),
+        first: "",
+        second: "",
+        operand: "",
+      });
+    }
+  };
 
   render() {
     return (
       <div className="App">
         <Display name="display" data={{ ...this.state }} />
         <Button onPress={this.onClearPress} name="c" />
+        <Button onPress={this.onEqualsPress} name="equals" />
         <Button onPress={this.onOperandPress} name="percent" />
-        <Button onPress={this.onOperandPress} name="equals" />
         <Button onPress={this.onOperandPress} name="multi" />
         <Button onPress={this.onOperandPress} name="divide" />
         <Button onPress={this.onOperandPress} name="subtract" />
