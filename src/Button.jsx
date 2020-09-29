@@ -62,12 +62,14 @@ export const Button = (props) => {
       break;
   }
 
+  const classes = `${props.name} key`;
+
   return (
     <div
       onClick={() => {
         props.onPress(symbol);
       }}
-      className={props.name}
+      className={classes}
       style={{ gridArea: props.name }}
     >
       {symbol}

@@ -51,6 +51,21 @@ class App extends React.Component {
     }
   };
 
+  percent = (a, b, operand) => {
+    switch (operand) {
+      case "+":
+        return parseFloat(a) + parseFloat(b) / 100;
+      case "-":
+        return parseFloat(a) - parseFloat(b) / 100;
+      case "*":
+        return (parseFloat(a) * parseFloat(b)) / 100;
+      case "/":
+        return parseFloat(a) / parseFloat(b) / 100;
+      default:
+        break;
+    }
+  };
+
   onClearPress = (key) => {
     this.setState({
       first: "",
@@ -75,13 +90,28 @@ class App extends React.Component {
     }
   };
 
+  onPercentPress = () => {
+    if (this.state.second !== "") {
+      this.setState({
+        result: this.percent(
+          this.state.first,
+          this.state.second,
+          this.state.operand
+        ),
+        first: "",
+        second: "",
+        operand: "",
+      });
+    }
+  };
+
   render() {
     return (
       <div className="App">
         <Display name="display" data={{ ...this.state }} />
         <Button onPress={this.onClearPress} name="c" />
         <Button onPress={this.onEqualsPress} name="equals" />
-        <Button onPress={this.onOperandPress} name="percent" />
+        <Button onPress={this.onPercentPress} name="percent" />
         <Button onPress={this.onOperandPress} name="multi" />
         <Button onPress={this.onOperandPress} name="divide" />
         <Button onPress={this.onOperandPress} name="subtract" />

@@ -11,11 +11,19 @@
     "four five six subtract"
     "one two three plus"
     "zero zero point equals";
+  border: 2px outset#a6a6a6;
+  margin: auto;
+  margin-top: 20px;
 }
 
 .display {
   background-color: #ffffff;
+  text-align: right;
+  font-size: xx-large;
+  font-weight: 600;
+  padding: 10px;
 }
+
 .c,
 .point,
 .one,
@@ -30,13 +38,27 @@
 .zero {
   background-color: #a6a6a6;
 }
+
 .percent {
   background-color: #4e4e4e;
 }
+
 .divide,
 .multi,
 .subtract,
 .equals,
 .plus {
   background-color: #ef811b;
+}
+
+.key {
+  text-align: center;
+  font-size: x-large;
+  font-weight: 600;
+  margin: 2px;
+  padding: 12.5px 0;
+}
+
+.key:hover {
+  filter: brightness(85%);
 }
